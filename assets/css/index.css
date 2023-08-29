@@ -1,0 +1,168 @@
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+p.content {
+  text-align: justify !important;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.topbar {
+  z-index: 10;
+}
+
+.logo {
+  font-size: 22px !important;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+span.nav-button {
+  cursor: pointer;
+}
+
+.sidebar {
+  position: fixed;
+  opacity: 0;
+  overflow: hidden;
+  min-height: 100%;
+  width: 260px;
+  transform: translateX(-100%);
+  transition: all 200ms;
+  padding-top: 70px;
+  z-index: 2;
+}
+
+.sidebar.sidebar-mini {
+  width: 57px;
+}
+
+.sidebar.sidebar-mobile {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.sidebar-content {
+  width: 100%;
+  list-style-type: none;
+}
+
+.content-wrapper {
+  width: 100%;
+  padding-top: 100px;
+  z-index: 1;
+}
+
+.hero-img {
+  position: relative;
+}
+
+
+.navigasi {
+    order: 1;
+  }
+  .materi {
+    order: 2;
+  }
+  
+  .talk-bubble {
+    position: absolute;
+    background-color: white;
+    top: -30px;
+    left: 60%;
+    border-radius: 4px;
+    padding: 10px 12px;
+  }
+  
+  .bubble-text {
+    font-size: 16px;
+  }
+  
+  .talk-bubble::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ddd;
+    position: absolute;
+    top: 20px;
+    left: -11px;
+  }
+  
+  .img-char {
+    width: 100%;
+    max-width: 260px;
+  }
+  
+  .img-char-latihan {
+    width: 100%;
+  }
+  
+  .menu-link {
+    width: 75%;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+  
+  .menu-details {
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }
+  
+  ul.daftar-isi {
+    padding-left: 3px;
+  }
+
+  @media (min-width: 1024px) {
+    .sidebar {
+      display: block;
+      opacity: 1;
+      transform: translateX(0);
+      position: inherit;
+      height: 100vh;
+    }
+  
+    .content-wrapper {
+      padding-top: 0;
+    }
+  
+    .show {
+      display: block;
+    }
+  
+    .interac-char {
+      margin: 0;
+      max-width: 100%;
+    }
+  
+    img.mini-char {
+      width: 40%;
+    }
+  
+    .navigasi {
+      order: 2;
+    }
+    .materi {
+      order: 1;
+    }
+  
+    .footer {
+      margin-top: -60px;
+    }
+  }

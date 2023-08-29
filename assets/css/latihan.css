@@ -1,0 +1,91 @@
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+ul.daftar-isi li {
+  list-style-type: none !important;
+  margin-top: 3px;
+}
+
+input.input-user {
+  width: 35px;
+  border: none;
+}
+
+input.input-user-md {
+  width: 90px;
+  border: none;
+}
+
+img.soal {
+  width: 500px;
+}
+
+.interac-char {
+  margin: 20px 0;
+}
+
+.interac-text {
+  font-size: 12px;
+}
+
+.interac-bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 300px;
+  min-height: 80px;
+  box-sizing: border-box;
+}
+
+.interac-bubble::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-top: 12px solid #ddd;
+  border-right: 12px solid transparent;
+  position: absolute;
+  bottom: -12px;
+  left: 50px;
+}
+
+.interac-img {
+  width: 200px;
+  max-width: 100%;
+}
+
+.petunjuk li {
+  font-size: 0.8rem;
+}
+
+.jawaban {
+  min-width: 640px;
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    max-width: 1920px;
+    max-height: 1000px;
+  }
+  .content {
+    height: 100%;
+  }
+
+  div.left-side {
+    height: 90vh;
+  }
+
+  .interac-char {
+    margin: 0;
+    max-width: 100%;
+  }
+}
