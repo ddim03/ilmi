@@ -40,9 +40,9 @@ img.soal {
   justify-content: center;
   align-items: center;
   position: relative;
-  max-width: 300px;
-  min-height: 80px;
-  box-sizing: border-box;
+  width: 200px;
+  height: 80px;
+  
 }
 
 .interac-bubble::after {

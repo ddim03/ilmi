@@ -160,8 +160,8 @@ reset.addEventListener("click", () => {
       el.value = "";
     });
     chat.innerText = "Selamat Mengerjakan";
-    hintCounter = 3
-    hintInfo.innerText = hintCounter
+    hintCounter = 3;
+    hintInfo.innerText = hintCounter;
   }
 });
 
@@ -202,6 +202,37 @@ function infoHintFailed() {
   chat.innerText = massage;
   play(massage);
 }
+
+function hitung(col) {
+  for (let i = 0; i < col.length; i++) {
+    if (i == 3 || i == 6) {
+      col[i].addEventListener("focus", function () {
+        this.value = parseInt(col[i - 2].value) * parseInt(col[i - 1].value);
+      });
+    } else if (i == 7) {
+      col[i].addEventListener("focus", function () {
+        this.value = parseInt(col[i - 6].value) + parseInt(col[i - 3].value);
+      });
+    } else if (i == 8) {
+      col[i].addEventListener("focus", function () {
+        this.value = parseInt(col[i - 5].value) + parseInt(col[i - 2].value);
+      });
+    } else if (i == 12) {
+      col[i].addEventListener("focus", function () {
+        this.value = parseInt(col[i - 2].value) + parseInt(col[i - 1].value);
+      });
+    } else if(i == 13) {
+      col[i].addEventListener("focus", function () {
+        this.value = parseInt(col[i - 4].value) + parseInt(col[i - 1].value);
+      });
+    }else if (i == 15) {
+      col[i].addEventListener("focus", function () {
+        this.value = parseInt(col[i - 2].value) - parseInt(col[i - 1].value);
+      });
+    }
+  }
+}
+hitung(input);
 
 function infoHintSuccess(res) {
   let text;
