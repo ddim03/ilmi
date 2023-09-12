@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="col-sm-12 col-lg-4 text-center border-end">
-          <p class="py-2 w-100 border-bottom border-top">Soal</p>
+          <p class="py-2 w-100 border-bottom border-top title-soal">Soal</p>
           <div class="soal overflow-x-auto">
             <img src="../../assets/img/soal-periodik-lifo.PNG" alt="soal" />
           </div>
@@ -59,7 +59,7 @@
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button
-                    class="accordion-button bg-white border-top"
+                    class="accordion-button bg-white border-top text-dark"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseOne"
@@ -89,6 +89,16 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="interac-char-mobile border-top pt-2">
+            <img
+              src="../../assets/img/ilmi-avatar.png"
+              alt=""
+              class="ilmi-avatar"
+            />
+            <div class="interac-bubble-mobile rounded border p-2 text-center">
+              <span class="interac-text-mobile">Selamat mengerjakan</span>
             </div>
           </div>
         </div>
@@ -122,7 +132,6 @@
                 emoji_objects
               </span>
               Hint
-              <span class="hint-info">3</span>
             </button>
           </div>
           <div class="overflow-auto border border-1 p-2">
@@ -151,6 +160,15 @@
                   <td>Rp<input type="text" class="input-user-md" /></td>
                 </tr>
                 <tr class="row3">
+                  <td>Biaya pembelian paling akhir ketiga</td>
+                  <td>
+                    <input type="text" class="input-user" />
+                  </td>
+                  <td>x</td>
+                  <td>Rp<input type="text" class="input-user-md" /></td>
+                  <td>Rp<input type="text" class="input-user-md" /></td>
+                </tr>
+                <tr class="row4">
                   <td>Persediaan 28 Februari 2021</td>
                   <td>
                     <input
@@ -216,7 +234,7 @@
     </div>
     <script src="../../vendor/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../../vendor/sweetalert2/sweetalert2.all.min.js"></script>
-    <script src="../../assets/js/functions.js"></script>
-    <script src="../../assets/js/periodik-fifo.js"></script>
+    <script src="../../assets/js/functions-periodik.js"></script>
+    <script src="../../assets/js/periodik-lifo.js"></script>
   </body>
 </html>

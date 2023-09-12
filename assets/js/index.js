@@ -6,6 +6,8 @@ function play(message) {
 }
 let massage =
   "Halo, Selamat datang diaplikasi ilmi, silahkan pilih materi yang ingin dipelajari";
+document.onload = play(massage);
+
 const navButton = document.querySelector(".nav-button");
 navButton.addEventListener("click", () => {
   const sidebar = document.querySelector(".sidebar");
@@ -21,5 +23,3 @@ showMenu.addEventListener("click", () => {
   const menuDetails = document.querySelector(".menu-details.perpetual");
   menuDetails.classList.toggle("show");
 });
-
-document.onload = play(massage);

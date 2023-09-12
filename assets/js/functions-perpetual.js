@@ -6,7 +6,12 @@ function play(message) {
 }
 
 let massage;
-const chat = document.querySelector("span.interac-text");
+let chat;
+if (window.innerWidth < 768) {
+  chat = document.querySelector("span.interac-text-mobile");
+} else {
+  chat = document.querySelector("span.interac-text");
+}
 
 class DataTransaksi {
   constructor(tanggal, pembelian, bpp, persediaan) {
@@ -150,23 +155,26 @@ function info(col, action) {
 }
 
 function infoTotal(col) {
-  info =
+  let text =
     col == 0
       ? "total jumlah biaya di beban pokok penjualan"
       : "total jumlah biaya di persediaan";
-  massage = `Anda menggunakan bantuan pada bagian ${info}`;
+  massage = `Anda menggunakan bantuan pada bagian ${text}`;
+  if (col == -1) {
+    massage = "Jawaban anda sudah benar";
+  }
   chat.innerText = massage;
   play(massage);
 }
 
 function soalSelesai() {
-  const popupBox = `<div class="swal2-html-container" id="swal2-html-container" style="display: block;">
-<img src="../../../assets/img/medal.png" width="200px" height="200px"/>
-<p class="fs-6">anda telah menyelesaikan latihan, Apakah anda ingin mengulangi latihan ini?</p>
-</div>`;
   Swal.fire({
-    title: "Selamat!",
-    html: popupBox,
+    title: "Selamat",
+    text: "Anda telah menyelesaikan latihan, apakah anda ingin mengulang latihan ini?",
+    imageUrl: "../../assets/img/medal.png",
+    imageWidth: 200,
+    imageHeight: 200,
+    imageAlt: "medal",
     confirmButtonText: "Ya",
     showCancelButton: true,
     cancelButtonText: "Tidak",

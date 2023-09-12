@@ -5,7 +5,7 @@ function play(message) {
   window.speechSynthesis.speak(speech);
 }
 let massage = "silahkan pilih soal yang ingin dikerjakan";
-
+document.onload = play(massage);
 const navButton = document.querySelector(".nav-button");
 navButton.addEventListener("click", () => {
   const sidebar = document.querySelector(".sidebar");
@@ -27,5 +27,3 @@ showMenu1.addEventListener("click", () => {
   const menuDetails = document.querySelector(".menu-details.periodik");
   menuDetails.classList.toggle("show");
 });
-
-document.onload = play(massage);

@@ -14,12 +14,16 @@ p.content {
 
 .wrapper {
   width: 100%;
+  max-width: 1400px;
   height: 100%;
+  max-height: 800px;
+  margin: 0 auto;
   position: relative;
 }
 
 .topbar {
   z-index: 10;
+  max-width: 1400px;
 }
 
 .nav-button {
@@ -84,7 +88,7 @@ span.nav-button {
   width: 150px;
   position: absolute;
   background-color: white;
-  top: -30px;
+  top: -35px;
   left: 60%;
   border-radius: 4px;
   padding: 10px 8px;
@@ -109,7 +113,7 @@ span.nav-button {
 }
 
 .img-char {
-  width: 100%;
+  width: 60%;
   max-width: 260px;
 }
 
@@ -150,7 +154,9 @@ span.nav-button {
   .logo {
     margin: 0 10px !important;
   }
-
+  .img-char {
+    width: 100%;
+  }
   .img-char-latihan {
     width: 100%;
   }
@@ -160,6 +166,7 @@ span.nav-button {
 
   .talk-bubble {
     width: 200px;
+    top: -20px;
   }
 
   .show {

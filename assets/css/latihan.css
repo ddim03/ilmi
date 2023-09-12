@@ -27,42 +27,6 @@ img.soal {
   width: 500px;
 }
 
-.interac-char {
-  margin: 20px 0;
-}
-
-.interac-text {
-  font-size: 12px;
-}
-
-.interac-bubble {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 200px;
-  height: 80px;
-  
-}
-
-.interac-bubble::after {
-  content: "";
-  display: block;
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-top: 12px solid #ddd;
-  border-right: 12px solid transparent;
-  position: absolute;
-  bottom: -12px;
-  left: 50px;
-}
-
-.interac-img {
-  width: 200px;
-  max-width: 100%;
-}
-
 .petunjuk li {
   font-size: 0.8rem;
 }
@@ -71,10 +35,52 @@ img.soal {
   min-width: 640px;
 }
 
+.interac-char {
+  display: none;
+}
+.interac-char-mobile {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+.interac-text-mobile {
+  font-size: 12px;
+}
+.ilmi-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  padding: 1px;
+  border: 1px solid #ddd;
+}
+
+.interac-bubble-mobile {
+  margin: 10px 0;
+  max-width: 240px;
+  margin-left: 18px;
+  position: relative;
+}
+
+.interac-bubble-mobile::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-right: 11px solid #ddd;
+  position: absolute;
+  top: 9.5px;
+  left: -12.5px;
+}
+
 @media (min-width: 1024px) {
   .wrapper {
-    max-width: 1920px;
+    max-width: 1400px;
     max-height: 1000px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
   }
   .content {
     height: 100%;
@@ -83,9 +89,50 @@ img.soal {
   div.left-side {
     height: 90vh;
   }
+  .interac-char-mobile {display: none;}
+  .interac-char {
+    display: block;
+    margin: 20px 0;
+  }
+
+  .interac-text {
+    font-size: 12px;
+  }
+
+  .interac-bubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 200px;
+    max-width: 100%;
+    max-height: fit-content;
+  }
+
+  .interac-bubble::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-top: 12px solid #ddd;
+    border-right: 12px solid transparent;
+    position: absolute;
+    bottom: -12px;
+    left: 50px;
+  }
+
+  .interac-img {
+    width: 200px;
+    max-width: 100%;
+  }
 
   .interac-char {
     margin: 0;
     max-width: 100%;
+  }
+
+  .interac-char.mini {
+    display: none;
   }
 }

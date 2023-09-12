@@ -25,7 +25,7 @@
           <div
             class="d-flex border-bottom border-top align-items-center justify-content-center"
           >
-            <span class="py-2 fs-6">First In First Out</span>
+            <span class="py-2 fs-6">Average</span>
           </div>
           <div
             class="d-flex flex-column align-items-center justify-content-between left-side"
@@ -59,7 +59,7 @@
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button
-                    class="accordion-button bg-white border-top"
+                    class="accordion-button bg-white border-top text-dark"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#flush-collapseOne"
@@ -89,6 +89,16 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="interac-char-mobile border-top pt-2">
+            <img
+              src="../../assets/img/ilmi-avatar.png"
+              alt=""
+              class="ilmi-avatar"
+            />
+            <div class="interac-bubble-mobile rounded border p-2 text-center">
+              <span class="interac-text-mobile">Selamat mengerjakan</span>
             </div>
           </div>
         </div>
@@ -165,9 +175,9 @@
                 </tr>
                 <tr>
                   <td>
-                    <input type="text" class="input-user" /> x
-                    Rp <input type="text" class="input-user-md" /> =
-                    Rp <input type="text" class="input-user-md" />
+                    <input type="text" class="input-user" /> x Rp
+                    <input type="text" class="input-user-md" /> = Rp
+                    <input type="text" class="input-user-md" />
                   </td>
                 </tr>
               </table>
@@ -219,7 +229,7 @@
     </div>
     <script src="../../vendor/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../../vendor/sweetalert2/sweetalert2.all.min.js"></script>
-    <script src="../../assets/js/functions.js"></script>
-    <script src="../../assets/js/periodik-fifo.js"></script>
+    <script src="../../assets/js/functions-periodik.js"></script>
+    <script src="../../assets/js/periodik-average.js"></script>
   </body>
 </html>

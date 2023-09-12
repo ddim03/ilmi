@@ -223,6 +223,40 @@ check.addEventListener("click", () => {
 
 const hint = document.querySelector("#hint");
 const hintInfo = document.querySelector(".hint-info");
+
+function useHintRow5() {
+  for (let i = 0; i <= data5.length; i++) {
+    if (i >= 1 && i <= 4) {
+      if (row5[i].value != "") {
+        row5[i].value = "";
+        return i;
+      }
+    } else if (i >= 7 && i <= 9) {
+      if (row5[i].value != "") {
+        row5[i].value = "";
+        return i;
+      }
+    } else {
+      if (row5[i].value != data5[i] || row5[i].value == "") {
+        row5[i].value = data5[i];
+        return i;
+      }
+    }
+    return -1;
+  }
+}
+
+function useHintRow11() {
+  if (row11[0].value == "" || row11[0].value != totalBPP) {
+    row11[0].value = totalBPP;
+    return 0;
+  } else if (row11[1].value == "" || row11[1].value != totalPersediaan) {
+    row11[1].value = totalPersediaan;
+    return 1;
+  }
+  return -1;
+}
+
 let hintCounter = 3;
 hint.addEventListener("click", () => {
   let hintResult;
@@ -241,26 +275,7 @@ hint.addEventListener("click", () => {
         hintResult = useHint(row4, 0, 6, data4);
         break;
       case 5:
-        hintResult = function () {
-          for (let i = 0; i <= data5.length; i++) {
-            if (i >= 1 && i <= 4) {
-              if (row5[i].value != "") {
-                row5[i].value = "";
-                return i;
-              }
-            } else if (i >= 7 && i <= 9) {
-              if (row5[i].value != "") {
-                row5[i].value = "";
-                return i;
-              }
-            } else {
-              if (row5[i].value != data5[i] || row5[i].value == "") {
-                row5[i].value = data5[i];
-                return i;
-              }
-            }
-          }
-        };
+        hintResult = useHintRow5();
         break;
       case 6:
         hintResult = useHint(row6, 0, 4, data6);
@@ -278,21 +293,10 @@ hint.addEventListener("click", () => {
         hintResult = useHint(row10, 0, 6, data10);
         break;
       case 11:
-        hintResult = function () {
-          if (row11[0].value == "" || row11[0].value != totalBPP) {
-            row11[0].value = totalBPP;
-            return 0;
-          } else if (
-            row11[1].value == "" ||
-            row11[1].value != totalPersediaan
-          ) {
-            row11[1].value = totalPersediaan;
-            return 1;
-          }
-        };
+        hintResult = useHintRow11();
         break;
     }
-    console.log(hintResult)
+    console.log(hintResult);
     if (row != 11) {
       info(hintResult, "hint");
     } else {

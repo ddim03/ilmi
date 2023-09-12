@@ -23,7 +23,7 @@ const data3 = fetchData(
   new DataAverage("12", [800, 4400, 3520000], [0, 0, 0], [900, 4355, 3920000])
 );
 const data4 = fetchData(
-  new DataAverage("16", [0, 0, 0], [500, 4355, 2177500], [400, 4355, 1742500])
+  new DataAverage("16", [0, 0, 0], [500, 4355, 2177500], [400, 4356, 1742500])
 );
 const data5 = fetchData(
   new DataAverage("22", [500, 4800, 2400000], [0, 0, 0], [900, 4602, 4142500])
@@ -44,12 +44,46 @@ const check = document.querySelector("#check");
 let row = 1;
 let soalBenar = false;
 
+function hitung(row, prevData, tr) {
+  for (let i = 0; i < row.length; i++) {
+    let a, b;
+    if (i == 3 || i == 6) {
+      row[i].addEventListener("focus", function () {
+        a = row[i - 2].value;
+        b = row[i - 1].value;
+        if (a != "" && b != "") this.value = parseInt(a) * parseInt(b);
+      });
+    } else if (i == 8) {
+      row[i].addEventListener("focus", function () {
+        a = row[i + 1].value;
+        b = row[i - 1].value;
+        if (a != "" && b != "") this.value = Math.floor(parseInt(a) / parseInt(b));
+      });
+    } else if (i == 9) {
+      a = prevData;
+      if (tr == 1 && prevData != "") {
+        row[i].addEventListener("focus", function () {
+          b = row[3].value;
+          this.value = b != "" ? parseInt(a) + parseInt(b) : "";
+        });
+      } else if (tr == 2 && prevData != "") {
+        row[i].addEventListener("focus", function () {
+          b = row[6].value;
+          this.value = b != "" ? parseInt(a) - parseInt(b) : "";
+        });
+      }
+    }
+  }
+}
+
+autoMultiply(row1);
 check.addEventListener("click", () => {
   if (row == 1) {
     let result = cekSoal(row1, 1, 6, data1);
     if (result == 10) {
       soalBenar = true;
       jawabBenar(row1, row + 1);
+      hitung(row2, row1[9].value, 2);
     } else {
       soalBenar = false;
       info(result, "salah");
@@ -60,6 +94,7 @@ check.addEventListener("click", () => {
     if (result == 10) {
       soalBenar = true;
       jawabBenar(row2, row + 1);
+      hitung(row3,row2[9].value, 1)
     } else {
       soalBenar = false;
       info(result, "salah");
@@ -70,6 +105,7 @@ check.addEventListener("click", () => {
     if (result == 10) {
       soalBenar = true;
       jawabBenar(row3, row + 1);
+      hitung(row4,row3[9].value,2)
     } else {
       soalBenar = false;
       info(result, "salah");
@@ -80,6 +116,7 @@ check.addEventListener("click", () => {
     if (result == 10) {
       soalBenar = true;
       jawabBenar(row4, row + 1);
+      hitung(row5,row4[9].value,1)
     } else {
       soalBenar = false;
       info(result, "salah");
@@ -90,6 +127,7 @@ check.addEventListener("click", () => {
     if (result == 10) {
       soalBenar = true;
       jawabBenar(row5, row + 1);
+      hitung(row6,row5[9].value,2)
     } else {
       soalBenar = false;
       info(result, "salah");
@@ -137,7 +175,6 @@ hint.addEventListener("click", () => {
         hintResult = useHint(row6, 1, 3, data6);
         break;
     }
-    console.log(hintResult);
     info(hintResult, "hint");
     if (hintResult != -1) {
       hintCounter--;
@@ -149,7 +186,6 @@ hint.addEventListener("click", () => {
   }
   hintInfo.innerHTML = hintCounter;
 });
-
 
 const resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", () => {

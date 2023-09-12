@@ -36,8 +36,7 @@ const totalBPP = total([
   data12[6],
 ]);
 
-const totalPersediaan = total([data10[9],data11[9], data12[9]]);
-
+const totalPersediaan = total([data10[9], data11[9], data12[9]]);
 
 const row1 = Array.from(document.querySelectorAll("tr.row1 td input"));
 const row2 = Array.from(document.querySelectorAll("tr.row2 td input"));
@@ -62,7 +61,6 @@ const total2 = document.querySelector(".total-persediaan");
 total2.addEventListener("focus", function () {
   this.value = totalPersediaan;
 });
-
 
 const check = document.querySelector("#check");
 let row = 1;
@@ -222,10 +220,18 @@ check.addEventListener("click", () => {
   }
 });
 
-
-
 const hint = document.querySelector("#hint");
 const hintInfo = document.querySelector(".hint-info");
+function useHintRow13() {
+  if (row11[0].value == "" || row11[0].value != totalBPP) {
+    row11[0].value = totalBPP;
+    return 0;
+  } else if (row11[1].value == "" || row11[1].value != totalPersediaan) {
+    row11[1].value = totalPersediaan;
+    return 1;
+  }
+  return -1;
+}
 let hintCounter = 3;
 hint.addEventListener("click", () => {
   let hintResult;
@@ -261,28 +267,16 @@ hint.addEventListener("click", () => {
       case 10:
         hintResult = useHint(row10, 0, 6, data10);
         break;
-        case 11 :
-            hintResult = useHint(row11, 0, 6, data11)
-            break;
-        case 12:
-            hintResult = useHint(row12, 0, 6, data12)
-            break;
+      case 11:
+        hintResult = useHint(row11, 0, 6, data11);
+        break;
+      case 12:
+        hintResult = useHint(row12, 0, 6, data12);
+        break;
       case 13:
-        hintResult = function () {
-          if (row11[0].value == "" || row11[0].value != totalBPP) {
-            row11[0].value = totalBPP;
-            return 0;
-          } else if (
-            row11[1].value == "" ||
-            row11[1].value != totalPersediaan
-          ) {
-            row11[1].value = totalPersediaan;
-            return 1;
-          }
-        };
+        hintResult = useHintRow13();
         break;
     }
-    console.log(hintResult)
     if (row != 13) {
       info(hintResult, "hint");
     } else {
@@ -298,7 +292,6 @@ hint.addEventListener("click", () => {
   }
   hintInfo.innerHTML = hintCounter;
 });
-
 
 const resetBtn = document.querySelector("#reset");
 resetBtn.addEventListener("click", () => {
