@@ -20,16 +20,16 @@ const data2 = fetchData(
   new DataAverage("9", [0, 0, 0], [100, 4000, 400000], [100, 4000, 400000])
 );
 const data3 = fetchData(
-  new DataAverage("12", [800, 4400, 3520000], [0, 0, 0], [900, 4355, 3920000])
+  new DataAverage("12", [800, 4400, 3520000], [0, 0, 0], [900, 4356, 3920000])
 );
 const data4 = fetchData(
   new DataAverage("16", [0, 0, 0], [500, 4355, 2177500], [400, 4356, 1742500])
 );
 const data5 = fetchData(
-  new DataAverage("22", [500, 4800, 2400000], [0, 0, 0], [900, 4602, 4142500])
+  new DataAverage("22", [500, 4800, 2400000], [0, 0, 0], [900, 4603, 4142500])
 );
 const data6 = fetchData(
-  new DataAverage("27", [0, 0, 0], [300, 4602, 1380600], [600, 4603, 2761900])
+  new DataAverage("27", [0, 0, 0], [300, 4603, 1380600], [600, 4603, 2761900])
 );
 
 const row1 = Array.from(document.querySelectorAll("tr.row1 td input"));
@@ -57,7 +57,8 @@ function hitung(row, prevData, tr) {
       row[i].addEventListener("focus", function () {
         a = row[i + 1].value;
         b = row[i - 1].value;
-        if (a != "" && b != "") this.value = Math.floor(parseInt(a) / parseInt(b));
+        if (a != "" && b != "")
+          this.value = Math.round(parseInt(a) / parseInt(b));
       });
     } else if (i == 9) {
       a = prevData;
@@ -94,7 +95,7 @@ check.addEventListener("click", () => {
     if (result == 10) {
       soalBenar = true;
       jawabBenar(row2, row + 1);
-      hitung(row3,row2[9].value, 1)
+      hitung(row3, row2[9].value, 1);
     } else {
       soalBenar = false;
       info(result, "salah");
@@ -105,7 +106,7 @@ check.addEventListener("click", () => {
     if (result == 10) {
       soalBenar = true;
       jawabBenar(row3, row + 1);
-      hitung(row4,row3[9].value,2)
+      hitung(row4, row3[9].value, 2);
     } else {
       soalBenar = false;
       info(result, "salah");
@@ -116,7 +117,7 @@ check.addEventListener("click", () => {
     if (result == 10) {
       soalBenar = true;
       jawabBenar(row4, row + 1);
-      hitung(row5,row4[9].value,1)
+      hitung(row5, row4[9].value, 1);
     } else {
       soalBenar = false;
       info(result, "salah");
@@ -127,7 +128,7 @@ check.addEventListener("click", () => {
     if (result == 10) {
       soalBenar = true;
       jawabBenar(row5, row + 1);
-      hitung(row6,row5[9].value,2)
+      hitung(row6, row5[9].value, 2);
     } else {
       soalBenar = false;
       info(result, "salah");

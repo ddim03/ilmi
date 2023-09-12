@@ -102,24 +102,18 @@ reset.addEventListener("click", () => {
 });
 
 const hint = document.querySelector("#hint");
-const hintInfo = document.querySelector(".hint-info");
-let hintCounter = 3;
+const title = document.querySelector(".title-soal");
+const img = document.querySelector(".img-soal");
+let isChanged = false;
 hint.addEventListener("click", () => {
-  if (hintCounter <= 3 && hintCounter > 0) {
-    let hintResult = useHint(input, dataTransaksi);
-    console.log(hintResult);
-    if (hintResult == -1) {
-      infoHintFailed();
-    } else {
-      infoHintSuccess(hintResult);
-      hintCounter--;
-      console.log(hintCounter);
-      hintInfo.innerHTML = hintCounter;
-    }
+  if (isChanged) {
+    title.textContent = "Soal";
+    img.setAttribute("src", "../../assets/img/soal-periodik-fifo.PNG");
+    isChanged = !isChanged;
   } else {
-    massage = "Bantuan anda sudah habis";
-    chat.innerText = massage;
-    play(massage);
+    title.textContent = "Metode Perpetual";
+    img.setAttribute("src", "../../assets/img/jawab-perpetual-fifo.png");
+    isChanged = !isChanged;
   }
 });
 

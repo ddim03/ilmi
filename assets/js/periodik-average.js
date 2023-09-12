@@ -103,27 +103,20 @@ reset.addEventListener("click", () => {
 });
 
 const hint = document.querySelector("#hint");
-const hintInfo = document.querySelector(".hint-info");
-let hintCounter = 3;
+const title = document.querySelector(".title-soal");
+const img = document.querySelector(".img-soal");
+let isChanged = false;
 hint.addEventListener("click", () => {
-  if (hintCounter <= 3 && hintCounter > 0) {
-    let hintResult = useHint(input, dataTransaksi);
-    console.log(hintResult);
-    if (hintResult == -1) {
-      infoHintFailed();
-    } else {
-      infoHintSuccess(hintResult);
-      hintCounter--;
-      console.log(hintCounter);
-      hintInfo.innerHTML = hintCounter;
-    }
+  if (isChanged) {
+    title.textContent = "Soal";
+    img.setAttribute("src", "../../assets/img/soal-periodik-average.PNG");
+    isChanged = !isChanged;
   } else {
-    massage = "Bantuan anda sudah habis";
-    chat.innerText = massage;
-    play(massage);
+    title.textContent = "Metode Perpetual";
+    img.setAttribute("src", "../../assets/img/jawab-perpetual-average.png");
+    isChanged = !isChanged;
   }
 });
-
 
 function hitung(col) {
   for (let i = 0; i < col.length; i++) {
@@ -153,47 +146,47 @@ function hitung(col) {
 hitung(input);
 
 function infoHintSuccess(res) {
-    let text;
-    switch (true) {
-        case res == 0:
-            text = "total tersedia yang untuk dijual";
-            break;
-          case res == 1:
-            text = "total unit";
-            break;
-          case res == 2:
-            text = "biaya tersedia untuk dijual";
-            break;
-          case res == 3:
-            text = "sisa unit";
-            break;
-          case res == 4:
-            text = "harga per unit";
-            break;
-          case res == 5:
-            text = "total biaya tersedia untuk dijual";
-            break;
-          case res == 6:
-            text = "persediaan awal";
-            break;
-          case res < 10:
-            text = "pembelian";
-            break;
-          case res == 10:
-            text = "biaya barang tersedia untuk dijual";
-            break;
-          case res == 11:
-            text = "persediaan akhir";
-            break;
-          case (res = 12):
-            text = "total beban pokok penjualan";
-            break;
-    }
-    if (res < 9) {
-      massage = `Anda menggunakan bantuan pada bagian sisa persediaan di ${text}`;
-    } else {
-      massage = `Anda menggunakan bantuan pada bagian beban pokok penjualan di ${text}`;
-    }
-    chat.innerText = massage;
-    play(massage);
+  let text;
+  switch (true) {
+    case res == 0:
+      text = "total tersedia yang untuk dijual";
+      break;
+    case res == 1:
+      text = "total unit";
+      break;
+    case res == 2:
+      text = "biaya tersedia untuk dijual";
+      break;
+    case res == 3:
+      text = "sisa unit";
+      break;
+    case res == 4:
+      text = "harga per unit";
+      break;
+    case res == 5:
+      text = "total biaya tersedia untuk dijual";
+      break;
+    case res == 6:
+      text = "persediaan awal";
+      break;
+    case res < 10:
+      text = "pembelian";
+      break;
+    case res == 10:
+      text = "biaya barang tersedia untuk dijual";
+      break;
+    case res == 11:
+      text = "persediaan akhir";
+      break;
+    case (res = 12):
+      text = "total beban pokok penjualan";
+      break;
   }
+  if (res < 9) {
+    massage = `Anda menggunakan bantuan pada bagian sisa persediaan di ${text}`;
+  } else {
+    massage = `Anda menggunakan bantuan pada bagian beban pokok penjualan di ${text}`;
+  }
+  chat.innerText = massage;
+  play(massage);
+}
