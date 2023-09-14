@@ -30,12 +30,6 @@ function cekJawaban(data1, data2) {
   return -1;
 }
 
-function infoSuccess() {
-  massage = "Jawaban anda sudah benar";
-  chat.innerText = massage;
-  play(massage);
-  return;
-}
 
 function soalSelesai() {
   massage = "Selamat!, anda telah menyelesaikan latihan, apakah anda ingin mengulangi latihan ini?"
@@ -59,22 +53,6 @@ function soalSelesai() {
       window.location.href = "../../latihan.html";
     }
   });
-}
-
-function useHint(data1, data2) {
-  for (let i = 0; i < data1.length; i++) {
-    if (data1[i].value != data2[i]) {
-      data1[i].value = data2[i];
-      return i;
-    }
-  }
-  return -1;
-}
-
-function infoHintFailed() {
-  massage = "bantuan tidak dapat digunakan";
-  chat.innerText = massage;
-  play(massage);
 }
 
 const back = document.querySelector("#back");

@@ -51,7 +51,6 @@ cek.addEventListener("click", () => {
   let result = cekJawaban(input, dataTransaksi);
   console.log(result);
   if (result == -1) {
-    infoSuccess(result);
     soalSelesai();
   } else {
     infoFailed(result);
@@ -89,13 +88,13 @@ function infoFailed(res) {
       text = "persediaan akhir";
       break;
     case res == 18:
-      text = "beban pokok penjualan";
+      text = "total beban pokok penjualan";
       break;
   }
   if (res < 12) {
-    massage = `Jawaban anda salah pada bagian sisa persediaan di ${text}`;
+    massage = `Jawaban anda salah pada bagian menghitung sisa persediaan di ${text}`;
   } else {
-    massage = `Jawaban anda salah pada bagian beban pokok penjualan di ${text}`;
+    massage = `Jawaban anda salah pada bagian menghitung beban pokok penjualan di ${text}`;
   }
   chat.innerText = massage;
   play(massage);
@@ -115,15 +114,18 @@ reset.addEventListener("click", () => {
 });
 
 const hint = document.querySelector("#hint");
+const hintInfo = document.querySelector("#hint .hint-info");
 const title = document.querySelector(".title-soal");
 const img = document.querySelector(".img-soal");
 let isChanged = false;
 hint.addEventListener("click", () => {
   if (isChanged) {
+    hintInfo.innerHTML= "Hint"
     title.textContent = "Soal";
     img.setAttribute("src", "../../assets/img/soal-periodik-lifo.PNG");
     isChanged = !isChanged;
   } else {
+    hintInfo.innerHTML= "Kembali ke soal"
     title.textContent = "Metode Perpetual";
     img.setAttribute("src", "../../assets/img/jawab-perpetual-lifo.png");
     isChanged = !isChanged;
@@ -167,45 +169,3 @@ function hitung(col) {
 }
 hitung(input);
 
-function infoHintSuccess(res) {
-  let text;
-  switch (true) {
-    case res == 0:
-      text = "sisa unit";
-      break;
-    case res < 4:
-      text = "biaya pembelian paling akhir";
-      break;
-    case res < 7:
-      text = "biaya pembelian paling akhir kedua";
-      break;
-    case res < 10:
-      text = "biaya pembelian paling akhir ketiga";
-      break;
-    case res < 12:
-      text = "persediaan 28 Februari 2021";
-      break;
-    case res == 12:
-      text = "persediaan awal";
-      break;
-    case res < 16:
-      text = "pembelian";
-      break;
-    case res == 16:
-      text = "biaya barang tersedia untuk dijual";
-      break;
-    case res == 17:
-      text = "persediaan akhir";
-      break;
-    case res == 18:
-      text = "beban pokok penjualan";
-      break;
-  }
-  if (res < 12) {
-    massage = `Anda menggunakan bantuan pada bagian sisa persediaan di ${text}`;
-  } else {
-    massage = `Anda menggunakan bantuan pada bagian beban pokok penjualan di ${text}`;
-  }
-  chat.innerText = massage;
-  play(massage);
-}
