@@ -23,13 +23,13 @@ const data3 = fetchData(
   new DataAverage("12", [800, 4400, 3520000], [0, 0, 0], [900, 4356, 3920000])
 );
 const data4 = fetchData(
-  new DataAverage("16", [0, 0, 0], [500, 4355, 2177500], [400, 4356, 1742500])
+  new DataAverage("16", [0, 0, 0], [500, 4356, 2178000], [400, 4355, 1742000])
 );
 const data5 = fetchData(
-  new DataAverage("22", [500, 4800, 2400000], [0, 0, 0], [900, 4603, 4142500])
+  new DataAverage("22", [500, 4800, 2400000], [0, 0, 0], [900, 4602, 4142000])
 );
 const data6 = fetchData(
-  new DataAverage("27", [0, 0, 0], [300, 4603, 1380600], [600, 4603, 2761900])
+  new DataAverage("27", [0, 0, 0], [300, 4602, 1380600], [600, 4602, 2761400])
 );
 
 const row1 = Array.from(document.querySelectorAll("tr.row1 td input"));
