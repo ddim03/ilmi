@@ -39,7 +39,6 @@ const input = Array.from(document.querySelectorAll("input"));
 const cek = document.querySelector("#check");
 cek.addEventListener("click", () => {
   let result = cekJawaban(input, dataTransaksi);
-  console.log(result);
   if (result == -1) {
     infoSuccess(result);
   } else {

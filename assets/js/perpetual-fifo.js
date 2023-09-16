@@ -296,7 +296,6 @@ hint.addEventListener("click", () => {
         hintResult = useHintRow11();
         break;
     }
-    console.log(hintResult);
     if (row != 11) {
       info(hintResult, "hint");
     } else {
