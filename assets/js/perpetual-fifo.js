@@ -207,14 +207,14 @@ check.addEventListener("click", () => {
       soalBenar = false;
       massage = `Jawaban anda salah pada bagian total jumlah biaya di persediaan`;
     } else {
-      massage =
-        "Selamat!, anda telah menyelesaikan latihan,apakah anda ingin mengulangi latihan ini ?";
       soalSelesai();
       total1.setAttribute("disabled", true);
       total2.setAttribute("disabled", true);
     }
-    chat.innerText = massage;
-    play(massage);
+    if (row != 11) {
+      chat.innerText = massage;
+      play(massage);
+    }
   }
   if (soalBenar == true && row <= 11) {
     row++;

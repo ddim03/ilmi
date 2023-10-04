@@ -40,7 +40,7 @@ const cek = document.querySelector("#check");
 cek.addEventListener("click", () => {
   let result = cekJawaban(input, dataTransaksi);
   if (result == -1) {
-    infoSuccess(result);
+    soalSelesai();
   } else {
     infoFailed(result);
   }
@@ -102,14 +102,14 @@ const hintInfo = document.querySelector("#hint .hint-info");
 const title = document.querySelector(".title-soal");
 const img = document.querySelector(".img-soal");
 let isChanged = false;
-hint.addEventListener("click", function() {
+hint.addEventListener("click", function () {
   if (isChanged) {
-    hintInfo.innerHTML= "Hint"
+    hintInfo.innerHTML = "Hint";
     title.textContent = "Soal";
     img.setAttribute("src", "../../assets/img/soal-periodik-fifo.PNG");
     isChanged = !isChanged;
   } else {
-    hintInfo.innerHTML= "Kembali ke soal"
+    hintInfo.innerHTML = "Kembali ke soal";
     title.textContent = "Metode Perpetual";
     img.setAttribute("src", "../../assets/img/jawab-perpetual-fifo.png");
     isChanged = !isChanged;
