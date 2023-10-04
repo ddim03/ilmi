@@ -138,7 +138,7 @@ check.addEventListener("click", () => {
     let result = cekSoal(row6, 1, 3, data6);
     if (result == 10) {
       soalBenar = true;
-      jawabBenar(row6, row + 0);
+      row6.forEach(e => e.setAttribute('disabled', true))
       soalSelesai();
     } else {
       soalBenar = false;

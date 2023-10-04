@@ -168,6 +168,9 @@ function infoTotal(col) {
 }
 
 function soalSelesai() {
+  massage = "Selamat!, anda telah menyelesaikan latihan, apakah anda ingin mengulangi latihan ini?"
+  chat.innerText = massage
+  play(massage)
   Swal.fire({
     title: "Selamat",
     text: "Anda telah menyelesaikan latihan, apakah anda ingin mengulang latihan ini?",
